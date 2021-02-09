@@ -1,6 +1,3 @@
-# My Stuff
-resources/*.download
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
