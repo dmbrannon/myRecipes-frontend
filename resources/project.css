@@ -1,5 +1,5 @@
 :root {
-  --jumbotron-padding-y: 3rem;
+  --jumbotron-padding-y: 2rem;
 }
 
 .jumbotron {
@@ -75,7 +75,7 @@ a:hover, a:focus {
   border-radius: 5px
 }
 
-.search-input {
+.search-recipe-input, .search-ingredient-input {
   color: white;
   border: 0;
   outline: 0;
@@ -87,7 +87,7 @@ a:hover, a:focus {
   transition: width 0.4s linear
 }
 
-.search .search-input {
+.search .search-recipe-input, .search .search-ingredient-input {
   padding: 0 10px;
   width: 100%;
   caret-color: #536bf6;

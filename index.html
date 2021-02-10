@@ -87,19 +87,21 @@
       <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">Dana's Recipes</h1>
-          <p class="lead text-muted">A collection of recipes that I use pretty often, all in one place. Search by recipe name or search by typing in a couple of ingredients you have in the fridge.</p>
+          <p class="lead text-muted">A collection of recipes that I use pretty often, all in one place. Search by recipe name or search by typing up to three ingredients you have in the fridge.</p>
           <p>
             <button type="button" class="btn btn-primary my-2" id="nameButton">Search by recipe name</button>
             <button type="button" class="btn btn-light my-2" id="ingredientButton">Search by ingredient</button>
           </p>
           <div class="search"> 
             <form>
-              <input type="text" class="search-input" id="search-input" onkeyup="searchRecipes()" placeholder="Search by name..." name="" aria-label="Search for..." autocomplete="off" spellcheck="true">
+              <input type="text" class="search-recipe-input" id="search-recipe-input" onkeyup="searchRecipes()" placeholder="Search by name..." name="" aria-label="Search for..." autocomplete="off" spellcheck="true">
+              <input type="text" hidden="true" class="search-ingredient-input" id="search-ingredient-input" placeholder="Search by ingredients separated by commas..." name="" aria-label="Search for..." autocomplete="off" spellcheck="true">
               <a href="#" class="search-icon" id="search-icon">
                 <i class="fa fa-search"></i>
               </a>
             </form>
           </div>
+          
         </div>
       </section>
 
@@ -163,19 +165,20 @@
         document.getElementById("nameButton").className = "btn btn-light my-2";
         document.getElementById("ingredientButton").className = "btn btn-success my-2";
         document.getElementById("search-icon").style.backgroundColor = "#28a745";
-        document.getElementById("search-input").placeholder = "Search by ingredients...";
-        document.getElementById("search-input").dataset.role = "tagsinput";
+        document.getElementById("search-ingredient-input").hidden = false;
+        document.getElementById("search-recipe-input").hidden = true;
       });
       document.getElementById("nameButton").addEventListener("click", function(){
         document.getElementById("ingredientButton").className = "btn btn-light my-2";
         document.getElementById("nameButton").className = "btn btn-primary my-2";
         document.getElementById("search-icon").style.backgroundColor = "#007bff";
-        document.getElementById("search-input").placeholder = "Search by name...";
+        document.getElementById("search-recipe-input").hidden = false;
+        document.getElementById("search-ingredient-input").hidden = true;
       });
 
       function searchRecipes() {
           var input, filter, row, recipeCards, displayCount, card, span, name, i, txtValue, text;
-          input = document.getElementById("search-input");
+          input = document.getElementById("search-recipe-input");
           filter = input.value.toUpperCase();
           row = document.getElementById("recipeRow");
           recipeCards = row.getElementsByClassName("card");
